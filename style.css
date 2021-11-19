@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --active-color: #fff;
+  --active-bg-color: #0a0a0a;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  text-align: center;
+  color: var(--active-color);
+  font-family: sans-serif;
+  background-color: var(--active-bg-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--active-color);
+}
+
+.main-container {
+  display: none;
+  height: 100vh;
+  background-color: var(--active-bg-color);
+  position: relative;
+  opacity: 1;
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.input-box-cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.heading1 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 5rem;
+}
+.reg-btn-label {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  color: var(--active-color);
+  font-size: 2rem;
+  z-index: 1000;
+}
+
+.reg-btn-label:hover {
+  cursor: pointer;
+}
+.reg-btn[type = "checkbox"] {
+  display: none;
+}
+.reg-btn[type = "checkbox"]:checked ~ .main-container {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+.reg-btn[type = "checkbox"]:checked ~ .reg-container {
+  opacity: 0.9;
+  z-index: 1;
+}
+.reg-btn[type = "checkbox"]:checked ~ .reg-btn-label span::after {
+  transform: rotate(45deg);
+}
+
+.reg-btn-label span {
+  padding-right: 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.reg-btn-label span::after {
+  content: "+";
+  position: absolute;
+  opacity: 0;
+  top: -0.5rem;
+  right: -2rem;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 3rem;
+}
+.reg-btn-label:hover span {
+  padding-right: 2.5rem;
+}
+
+.reg-btn-label:hover span::after {
+  opacity: 1;
+  right: 0;
+}
+
+.form-cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 40rem;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.form-cont input {
+  margin: 1rem;
+  height: 5rem;
+  width: 90%;
+  outline: none;
+  border-radius: 0;
+}
+.form-cont input:focus {
+  background-color: var(--active-bg-color);
+}
+.form-cont input[type = "email"],
+.form-cont input[type = "password"],
+.form-cont input[type = "text"] {
+  border: none;
+  border-bottom: 1px solid var(--active-color);
+  background-color: var(--active-bg-color);
+  color: var(--active-color);
+  font-size: 1.6rem;
+  padding: 0 2rem;
+}
+
+.form-cont input[type = "email"]:hover::-webkit-input-placeholder,
+.form-cont input[type = "password"]:hover::-webkit-input-placeholder,
+.form-cont input[type = "text"]:hover::-webkit-input-placeholder {
+  font-size: 2rem;
+}
+::-webkit-input-placeholder {
+  color: var(--active-color);
+  font-size: 1.6rem;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.submit-btn {
+  max-width: 50%;
+  border: none;
+  border-bottom: 1px solid var(--active-color);
+  background-color: var(--active-bg-color);
+  color: var(--active-color);
+  font-size: 1.6rem;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 0;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+  font-size: 2.5rem;
+}
+
+.reg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-color: #0a0a0a;
+  height: 100vh;
+  width: 99vw;
+  opacity: 0;
+  -webkit-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+}
+
+@media only screen and (max-width: 900px) {
+  .form-cont {
+    width: 30rem;
+  }
+}
